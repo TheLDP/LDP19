@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+
+		
+		/* Indent all lines of the block by 5 spaces */
+    .indented {
+      margin-left: 5ch; /* Adds indentation to the entire block */
+    }
+
+/* Right Justified Text for <p> Tag */
+	.right-justified {text-align: right;}
+	
+
+    /* Centers the <h1> and <h2> elements and sets custom font sizes */
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+      display: block; /* Ensures block display for centering */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 36px; /* Adjust this value as needed for <h1> */
+    }
+
+    h2 {
+      font-size: 32px; /* Adjust this value as needed for <h2> */
+    }
+
+	h3 {
+      font-size: 25px; /* Adjust this value as needed for <h2> */
+    }
+		
+	h4 {
+      font-size: 22px; /* Adjust this value as needed for <h2> */
+    }
+		
+		h5 {
+      font-size: 17px; /* Adjust this value as needed for <h2> */
+    }
+		
+			h6 {
+      font-size: 14px; /* Adjust this value as needed for <h2> */
+    }
+		
+    /* This will add spacing below each <li> element */
+    li {
+      margin-bottom: 20px; /* Adjust the value as needed */
+    }
+
+    /* Ensures nested lists align with the parent list items */
+    ol, ul {
+      padding-left: 0;
+      margin-left: 20px; /* Adjust this value as needed */
+	margin-bottom: 10px; /* Adjust the value as needed */
+		margin-top: 10px; /* Adjust the value as needed */
+    }
+
+    /* Adds left padding to nested list items to keep alignment consistent */
+    ol ol, ul ul, ol ul, ul ol {
+      margin-left: 20px; /* Adjust as needed for desired nested indentation */
+    }
+/* Container for TOC Table of Contents */
+.toc {
+  display: flex;
+  flex-direction: column;  /* Stack the paragraphs vertically */
+  justify-content: center;  /* Optional: Centers vertically (if needed) */
+  align-items: center;      /* Centers horizontally */
+  text-align: center;       /* Centers the text inside each <p> */
+  width: 300px;             /* Optional: Set a specific width for the TOC */
+  margin: 0 auto;           /* Centers the TOC horizontally in its container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.toc p {
+  margin: 10px 0;           /* Space between each <p> item */
+}
+
+.toc a {
+  text-decoration: none;    /* Remove underline from links */
+  color: #007bff;           /* Blue color for links */
+  font-size: 18px;          /* Optional: Adjust font size */
+}
+
+.toc a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+		
+.no-space {
+  line-height: 0;       /* Remove line spacing between lines */
+  margin: 0;            /* Remove any margin */
+  padding: 0;           /* Remove padding */
+  margin-top: -10px;  /* Optional: reduce space below the element */
+	}
+
+		.no-space2 {
+  line-height: 1.5;       /* Remove line spacing between lines */
+  margin: 0;            /* Remove any margin */
+  padding: 0;           /* Remove padding */
+  margin-top: -10px;  /* Optional: reduce space below the element */
+	}
+		
+
+
