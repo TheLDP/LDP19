@@ -50,7 +50,7 @@
 
     /* Ensures nested lists align with the parent list items */
     ol, ul {
-      padding-left: 0;
+      padding-left: 1rem;
       margin-left: 20px; /* Adjust this value as needed */
 	margin-bottom: 10px; /* Adjust the value as needed */
 		margin-top: 10px; /* Adjust the value as needed */
@@ -102,6 +102,69 @@
   padding: 0;           /* Remove padding */
   margin-top: -10px;  /* Optional: reduce space below the element */
 	}
-		
+
+  li.no-gap {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 
 
+  
+/* 1. Base Styles (Mobile / Extra Small) */
+/* This applies to all devices by default (0px and up) */
+body {
+  font-size: 14px;
+  background-color: white;
+}
+
+/* 2. Small Devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* 3. Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* 4. Large Devices (Desktops/Laptops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+    max-width: 1200px; /* Often used to center content on wide screens */
+    margin: 0 auto;
+  }
+}
+
+/* 5. Extra Large Devices (Large Monitors, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+
+
+/* Mobile-specific overrides (for screens smaller than 600px) */
+@media (max-width: 600px) {
+  .indented {
+    margin-left: 1.5ch; /* Reduce indent on mobile */
+  }
+
+  .toc {
+    width: 90%; /* Use percentage instead of fixed 300px */
+    padding: 10px;
+  }
+
+  ol, ul {
+    margin-left: 15px; /* Shrink margins so text doesn't get squeezed */
+  }
+
+  li {
+    margin-bottom: 10px; /* Reduce the "double spacing" look */
+  }
+}
