@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* CSS Document */
+
+:root {
+  --bg: #ffffff;
+  --sidebar-bg: #fbfbfa;
+  --border: rgba(55, 53, 47, 0.12);
+  --text: rgba(55, 53, 47, 0.9);
+  --muted: rgba(55, 53, 47, 0.6);
+  --hover: rgba(55, 53, 47, 0.06);
+  --radius: 8px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+li {
+      margin-bottom: 20px; /* Adjust the value as needed */
+    }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ========================= CSS-ONLY SIDEBAR TOGGLE ========================= */
+.sidebarToggle {
+  position: absolute;
+  left: -9999px; /* hide checkbox */
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  transition: grid-template-columns 180ms ease;
+}
+
+/* Collapse sidebar + move content left */
+.sidebarToggle:checked~.app {
+  grid-template-columns: 0px 1fr;
+}
+
+.sidebarToggle:checked~.app .sidebar {
+  overflow: hidden;
+  padding: 0;
+  border-right: none;
+}
+
+.toggleButton {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.toggleButton:hover {
+  color: var(--text);
+}
+
+/* Collapse button (◀) in upper-right of nav */
+.sidebar {
+  position: relative;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  overflow: auto;
+  padding: 10px;
+}
+
+.toggleButton--collapse {
+  position: fixed; /* Changed from absolute to fixed */
+  top: 10px;
+  /* Keeps it exactly in the upper right corner of the 320px sidebar */
+  left: 278px;     /* 320px sidebar width minus 32px button width minus 10px spacing */
+  z-index: 20;
+}
+
+/* Expand button (▶) sticks out from the content edge */
+.toggleButton--expand {
+  position: fixed;
+  top: 10px;
+  left: 320px; /* content edge when sidebar is open */
+  transform: translateX(30%); /* “sticks out” */
+  z-index: 9999;
+  display: none;
+}
+
+.sidebarToggle:checked~.toggleButton--expand {
+  display: grid;
+  left: 0px; /* content edge when collapsed */
+}
+
+/* Hide ◀ when collapsed */
+.sidebarToggle:checked~.app .toggleButton--collapse {
+  display: none;
+}
+
+/* ========================= SIDEBAR LOOK ========================= */
+.sidebarTitle {
+  padding: 10px 10px 6px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+details {
+  padding: 2px 0;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 3px 10px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  user-select: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+summary:hover {
+  background: var(--hover);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(-45deg);
+  margin-right: 2px;
+  opacity: .9;
+}
+
+/* Bold only the top-level main navigation headings */
+details > summary {
+  font-weight: 700; /* Makes text bold */
+}
+
+/* Keep nested sub-headings or lower-level options at normal weight */
+details details > summary {
+  font-weight: 500; /* Softens sub-headings back to a normal or medium weight */
+}
+
+details[open]>summary::before {
+  transform: rotate(45deg);
+}
+
+.navItem {
+  display: block;
+  padding: 7px 10px;
+  margin-left: 0px; /* Reset base margin to inherit from parent container instead */
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.navItem:hover {
+  background: var(--hover);
+}
+
+/* ========================= TRUE OUTLINE INDENTATION ========================= */
+
+/* Level 1 (Top Heading): Base alignment, stays far left */
+
+/* Level 2 (Subheading): Indents the entire container right */
+details details {
+  margin-left: 16px;
+}
+
+/* Level 3 (Sub-Subheading): Indents further right relative to level 2 */
+details details details {
+  margin-left: 20px;
+}
+
+/* Level 4 (Deep Nesting): Indents further right relative to level 3 */
+details details details details {
+  margin-left: 24px;
+}
+
+/* Aligns items directly under their specific parent summary text */
+details .navItem {
+  margin-left: 26px;
+}
+
+/* ========================= MAIN + PANELS ========================= */
+.main {
+  overflow: auto;
+  padding: 26px 34px;
+}
+
+.panel {
+  display: none;
+  max-width: 980px;
+}
+
+.panel:target {
+  display: block;
+}
+
+#start {
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0.2em 0 0.4em;
+  font-weight: 650;
+}
+
+p {
+  margin: 0.6em 0;
+  line-height: 1.55;
+  color: rgba(55, 53, 47, 0.85);
+}
+
+.note {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+
