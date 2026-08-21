@@ -20,10 +20,6 @@ html, body {
   height: 100%;
 }
 
-li {
-      margin-bottom: 20px; /* Adjust the value as needed */
-    }
-
 body {
   margin: 0;
   font-family: var(--font);
@@ -83,10 +79,9 @@ body {
 }
 
 .toggleButton--collapse {
-  position: fixed; /* Changed from absolute to fixed */
+  position: absolute;
   top: 10px;
-  /* Keeps it exactly in the upper right corner of the 320px sidebar */
-  left: 278px;     /* 320px sidebar width minus 32px button width minus 10px spacing */
+  right: 10px;
   z-index: 20;
 }
 
@@ -211,9 +206,8 @@ details .navItem {
 
 /* ========================= MAIN + PANELS ========================= */
 .main {
-  position: relative; /* REQUIRED: Tells the sticky header where to lock in place */
   overflow: auto;
-  padding: 0 34px 26px 34px; 
+  padding: 26px 34px;
 }
 
 .panel {
@@ -251,71 +245,5 @@ code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-
-
-.dynamic-header {
-  position: sticky;
-  top: 0;
-  background-color: var(--bg); /* Blocks out the text scrolling underneath */
-  z-index: 100;                /* Higher number ensures it stays on top */
-  padding-top: 26px;           /* Restores your original top spacing inside the header */
-  padding-bottom: 15px;        
-  margin-bottom: 20px;
-}
-
-/* Floating Reset / Back to Top Button */
-.reset-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: var(--text); /* Uses your deep charcoal theme color */
-  color: var(--bg);              /* Uses your white theme color */
-  border: 1px solid var(--border);
-  border-radius: var(--radius);  /* Matches your 8px corners */
-  padding: 10px 16px;
-  font-family: var(--font);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 999;                  /* Sits on top of the text paragraphs */
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  opacity: 0;                    /* Hidden by default until user scrolls */
-  pointer-events: none;          /* Prevents clicking it while hidden */
-}
-
-/* Hover effect */
-.reset-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  background-color: rgba(55, 53, 47, 0.95);
-}
-
-/* Active class to fade the button in via JavaScript */
-.reset-button.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Highlights the active link in the sidebar */
-.sidebar .navItem:has(+ * :target), /* Compatibility fallback */
-.sidebar .navItem[href]:is(:target, [href="${window.location.hash}"]), /* Dynamic link check */
-.sidebar a.navItem:active,
-.sidebar a.navItem:focus {
-  background-color: var(--hover);
-  font-weight: 600;
-  color: #c2a649; /* Elegant gold accent color that matches your project theme */
-  border-left: 3px solid #c2a649; /* Adds a clean vertical indicator line on the left edge */
-  padding-left: 7px; /* Adjusts padding slightly to accommodate the indicator line */
-}
-
-/* Styling for the actively selected sidebar item */
-.sidebar .navItem.active-link {
-  background-color: var(--hover);
-  font-weight: 700;
-  color: #bfa13b; /* A beautiful spiritual gold tone */
-  border-left: 4px solid #bfa13b; /* Distinct vertical accent line */
-  padding-left: 6px; /* Prevents the text from shifting when the border appears */
-}
 
 

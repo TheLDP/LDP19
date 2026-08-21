@@ -1,0 +1,438 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Indent all lines of the block by 5 spaces */
+.indented {
+  margin-left: 5ch; /* Adds indentation to the entire block */
+}
+
+/* Begin Note: This is for the Indexes Removed the '.' from the class name in HTML later */
+.tight-indented p {
+  margin: 0; /* Removes the vertical space between paragraphs */
+  padding-left: 2ch; /* Indents the block by 2 spaces */
+  display: block; /* Ensures they stack properly */
+}
+
+.tight-indented {
+  margin-bottom: 1em; /* Adds a little space before the next bold header */
+}
+
+/* End Note: This is for the Indexes */ 
+/* FIXED ABOVE: Changed original duplicate '/*' to '*/' to prevent breaking the code below */
+
+/* Right Justified Text for <p> Tag */
+.right-justified {
+  text-align: right;
+}
+
+/* Centers the h1 and h2 elements and sets custom font sizes */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  display: block; /* Ensures block display for centering */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 22px; }
+h5 { font-size: 17px; }
+h6 { font-size: 14px; }
+
+/* This will add spacing below each <li> element */
+li {
+  margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+/* Ensures nested lists align with the parent list items */
+ol, ul {
+  padding-left: 1rem;
+  margin-left: 20px; /* Adjust this value as needed */
+  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-top: 10px; /* Adjust the value as needed */
+}
+
+/* Adds left padding to nested list items to keep alignment consistent */
+ol ol, ul ul, ol ul, ul ol {
+  margin-left: 20px; /* Adjust as needed for desired nested indentation */
+}
+
+/* Container for TOC Table of Contents */
+.toc {
+  display: flex;
+  flex-direction: column; /* Stack the paragraphs vertically */
+  justify-content: center; /* Optional: Centers vertically (if needed) */
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Centers the text inside each <p> */
+  width: 300px; /* Optional: Set a specific width for the TOC */
+  margin: 0 auto; /* Centers the TOC horizontally in its container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.toc p {
+  margin: 10px 0; /* Space between each <p> item */
+}
+
+.toc a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Blue color for links */
+  font-size: 18px; /* Optional: Adjust font size */
+}
+
+.toc a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+.no-space {
+  line-height: 0; /* Remove line spacing between lines */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove padding */
+  margin-top: -10px; /* Optional: reduce space below the element */
+}
+
+.no-space2 {
+  line-height: 1.5; /* Remove line spacing between lines */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove padding */
+  margin-top: -10px; /* Optional: reduce space below the element */
+}
+
+li.no-gap {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2; /* Keeps text readable but tight */
+}
+
+/* 1. Base Styles (Mobile / Extra Small) */
+/* This applies to all devices by default (0px and up) */
+body {
+  font-size: 14px;
+  background-color: white;
+}
+
+/* 2. Small Devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* 3. Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* 4. Large Devices (Desktops/Laptops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+    max-width: 1200px; /* Often used to center content on wide screens */
+    margin: 0 auto;
+  }
+}
+
+/* 5. Extra Large Devices (Large Monitors, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+/* Mobile-specific overrides (for screens smaller than 600px) */
+@media (max-width: 600px) {
+  .indented {
+    margin-left: 1.5ch; /* Reduce indent on mobile */
+  }
+  .toc {
+    width: 90%; /* Use percentage instead of fixed 300px */
+    padding: 10px;
+  }
+  ol, ul {
+    margin-left: 15px; /* Shrink margins so text doesn't get squeezed */
+  }
+  li {
+    margin-bottom: 10px; /* Reduce the "double spacing" look */
+  }
+}
+
+
+@charset "utf-8";
+/* CSS Document */
+
+/* Indent all lines of the block by 5 spaces */
+.indented {
+  margin-left: 5ch; /* Adds indentation to the entire block */
+}
+
+/* Begin Note: This is for the Indexes Removed the '.' from the class name in HTML later */
+.tight-indented p {
+  margin: 0; /* Removes the vertical space between paragraphs */
+  padding-left: 2ch; /* Indents the block by 2 spaces */
+  display: block; /* Ensures they stack properly */
+}
+
+.tight-indented {
+  margin-bottom: 1em; /* Adds a little space before the next bold header */
+}
+
+/* End Note: This is for the Indexes */
+/* FIXED ABOVE: Changed original duplicate '/*' to '*/' to prevent breaking the code below */
+
+/* Right Justified Text for <p> Tag */
+.right-justified {
+  text-align: right;
+}
+
+/* Centers the h1 and h2 elements and sets custom font sizes */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  display: block; /* Ensures block display for centering */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 22px; }
+h5 { font-size: 17px; }
+h6 { font-size: 14px; }
+
+/* This will add spacing below each <li> element */
+li {
+  margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+/* Ensures nested lists align with the parent list items */
+ol, ul {
+  padding-left: 1rem;
+  margin-left: 20px; /* Adjust this value as needed */
+  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-top: 10px; /* Adjust the value as needed */
+}
+
+/* Adds left padding to nested list items to keep alignment consistent */
+ol ol, ul ul, ol ul, ul ol {
+  margin-left: 20px; /* Adjust as needed for desired nested indentation */
+}
+
+/* Container for TOC Table of Contents */
+.toc {
+  display: flex;
+  flex-direction: column; /* Stack the paragraphs vertically */
+  justify-content: center; /* Optional: Centers vertically (if needed) */
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Centers the text inside each <p> */
+  width: 300px; /* Optional: Set a specific width for the TOC */
+  margin: 0 auto; /* Centers the TOC horizontally in its container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.toc p {
+  margin: 10px 0; /* Space between each <p> item */
+}
+
+.toc a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Blue color for links */
+  font-size: 18px; /* Optional: Adjust font size */
+}
+
+.toc a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
+
+.no-space {
+  line-height: 0; /* Remove line spacing between lines */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove padding */
+  margin-top: -10px; /* Optional: reduce space below the element */
+}
+
+.no-space2 {
+  line-height: 1.5; /* Remove line spacing between lines */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove padding */
+  margin-top: -10px; /* Optional: reduce space below the element */
+}
+
+li.no-gap {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2; /* Keeps text readable but tight */
+}
+
+/* 1. Base Styles (Mobile / Extra Small) */
+/* This applies to all devices by default (0px and up) */
+body {
+  font-size: 14px;
+  background-color: white;
+}
+
+/* 2. Small Devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) {
+  body { font-size: 15px; }
+}
+
+/* 3. Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) {
+  body { font-size: 16px; }
+}
+
+/* 4. Large Devices (Desktops/Laptops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    font-size: 18px;
+    max-width: 1200px; /* Often used to center content on wide screens */
+    margin: 0 auto;
+  }
+}
+
+/* 5. Extra Large Devices (Large Monitors, 1200px and up) */
+@media (min-width: 1200px) {
+  body { font-size: 20px; }
+}
+
+/* Mobile-specific overrides (for screens smaller than 600px) */
+@media (max-width: 600px) {
+  .indented { margin-left: 1.5ch; /* Reduce indent on mobile */ }
+  .toc { width: 90%; /* Use percentage instead of fixed 300px */ padding: 10px; }
+  ol, ul { margin-left: 15px; /* Shrink margins so text doesn't get squeezed */ }
+  li { margin-bottom: 10px; /* Reduce the "double spacing" look */ }
+}
+
+/* ==========================================================================
+   TRUE FULL-WIDESCREEN EXPANSION LAYER
+   ========================================================================== */
+
+/* 1. Global Page Breakout - Removes the 1200px restriction completely */
+body {
+  max-width: none !important; /* Disables the 1200px limit so text can stretch wide */
+  width: calc(100% - 60px) !important; /* Spans the full screen, leaving 30px on each side */
+  margin: 0 auto !important; /* Centers the wide content layout on your screen */
+  padding: 0 !important;
+}
+
+/* 2. Forces all regular book text, headings, and lists to stretch out wide */
+body > p, 
+body > ol, 
+body > ul, 
+.indented,
+h1, h2, h3, h4, h5, h6 {
+  max-width: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. The Wide Solid Gray Accordion Bar Trigger */
+.accordion-bar-trigger {
+  display: flex !important;
+  justify-content: space-between !important; /* Text left, green arrow right */
+  align-items: center !important;
+  width: 100% !important; /* Matches the new wide text columns perfectly */
+  max-width: none !important;
+  padding: 14px 20px !important;
+  background-color: #f8f9fa !important; /* Soft gray background bar */
+  border-radius: 5px !important;
+  border-bottom: 2px solid #ccc !important;
+  margin: 20px 0 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important; /* Blocks link underlines */
+  user-select: none !important;
+}
+
+/* Formats the wide trigger text titles */
+.accordion-bar-trigger span:first-child {
+  color: #000000 !important;
+  font-weight: bold !important;
+  font-size: 22px !important;
+}
+
+/* Mouse hover highlight background */
+.accordion-bar-trigger:hover {
+  background-color: #f0f0f0 !important;
+}
+
+/* Retains active state background shade when expanded */
+.accordion-bar-trigger.active {
+  background-color: #e8e8e8 !important;
+  border-radius: 5px 5px 0 0 !important;
+}
+
+/* Large Permanent Green Arrow on the far right edge */
+.custom-arrow {
+  color: #28a745 !important;
+  font-size: 24px !important; /* 50% larger sizing format */
+  font-weight: bold !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease-in-out !important;
+  margin-left: auto !important;
+}
+
+/* Flips the arrow upwards when active */
+.accordion-bar-trigger.active .custom-arrow {
+  transform: rotate(180deg) !important;
+}
+
+/* Extra vertical layout separation margin after your second accordion element */
+.extra-bottom-space {
+  margin-bottom: 50px !important;
+}
+
+/* Base closed container layout mechanics for inner link rows */
+.accordion-drawer {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+/* Activated open metrics targeting smooth content viewing */
+.accordion-drawer.open-drawer {
+  max-height: 4000px !important; /* Allows space for massive link arrays */
+  overflow: visible !important;
+  opacity: 1 !important;
+  padding-top: 15px !important;
+  padding-bottom: 25px !important;
+}
+
+/* Ensures drawer paragraphs expand naturally within the wide screen limits */
+.accordion-drawer.open-drawer p {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 5px 0 !important;
+  display: block !important;
+}
+
+/* ==========================================================================
+   GLOBAL UNIVERSAL FONT ENLARGEMENT LOCK
+   ========================================================================== */
+
+/* Overrides all previous sizes to upscale text across ALL devices and screens fixing font sizes */
+body {
+  font-size: 22px !important; /* Forces a large, easy-to-read font size everywhere */
+}
+
+/* Optional: Scales up text slightly more on massive desktop screens for balance fixing font sizes*/
+@media (min-width: 1200px) {
+  body {
+    font-size: 26px !important; /* Makes it extra large and clear on wide monitors */
+  }
+}

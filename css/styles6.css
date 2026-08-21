@@ -210,19 +210,25 @@ details .navItem {
 }
 
 /* ========================= MAIN + PANELS ========================= */
-.main {
-  position: relative; /* REQUIRED: Tells the sticky header where to lock in place */
+.main{
+  position: relative;
   overflow: auto;
-  padding: 0 34px 26px 34px; 
+  padding: 0 12px 26px;                 /* was 0 34px 26px 34px */
 }
 
-.panel {
+/* PANEL: remove max width constraint */
+.panel{
   display: none;
-  max-width: 980px;
+  width: 100%;
+  max-width: none; margin: 0; width: 100%;            /* was 980px */
+  margin: 0;                  /* ensure no centering/inset */
 }
 
-.panel:target {
-  display: block;
+
+/* Replace your old .panel:target block with this updated variant */
+.panel:target,
+.panel.active-panel { 
+  display: block !important; 
 }
 
 #start {
@@ -318,4 +324,91 @@ code {
   padding-left: 6px; /* Prevents the text from shifting when the border appears */
 }
 
+/* Highlights the immediate folder parent (e.g., "Hearing") */
+details.active-parent > summary {
+  color: #bfa13b;          /* Matches your spiritual gold tone */
+  font-weight: 700;        /* Bolds the folder text */
+}
 
+/* Highlights the main top-level chapter heading when active */
+details.active-main-parent > summary {
+  color: #bfa13b;                         /* Turns the main heading gold */
+  font-weight: 700;                       /* Makes it extra bold */
+  border-bottom: 2px solid var(--border); /* Keeps the clean underline divider */
+  padding-bottom: 6px;
+}
+
+/* ========================= RESPONSIVE MOBILE VIEWPORTS ========================= */
+@media screen and (max-width: 768px) {
+  /* Stack the main grid into a single full-width layout lane */
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  /* Transform the sidebar into an overlay drawer that floats on top of text tracks */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 290px;
+    height: 100vh;
+    z-index: 9998;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    transition: transform 180ms ease;
+    transform: translateX(0); /* Fully open position by default */
+  }
+
+  /* Slide the sidebar completely out of frame to the left when checked/hidden */
+  .sidebarToggle:checked ~ .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarToggle:checked ~ .app .sidebar {
+    transform: translateX(-100%);
+    width: 290px;
+    padding: 0;
+    border-right: none;
+  }
+
+  /* Shift fixed toggle buttons to clean safety coordinates on smaller touch targets */
+  .toggleButton--collapse {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: auto;
+  }
+
+  .toggleButton--expand {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    transform: none;
+  }
+
+  .sidebarToggle:checked ~ .toggleButton--expand {
+    left: 12px;
+  }
+
+  /* UPDATED: Forces the main panel text view to take up the full viewport width */
+  .main {
+    width: 100vw !important;
+    max-width: 100% !important;
+    padding: 60px 16px 30px !important; /* Generates padding room below the floating menu button */
+    margin: 0 !important;
+    transition: padding-left 180ms ease;
+  }
+
+  /* UPDATED: Clears out space for the reading pane so it isn't tucked under the open drawer */
+  .sidebarToggle:not(:checked) ~ .app .main {
+    padding-left: 306px !important; /* 290px sidebar drawer width plus 16px layout padding buffer */
+  }
+
+  /* Clean responsive sizes for mobile typographic headings */
+  .dynamic-header h1 {
+    font-size: 1.6em;
+  }
+
+  .dynamic-header h2 {
+    font-size: 1.1em;
+  }
+}

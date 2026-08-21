@@ -1,11 +1,27 @@
 @charset "utf-8";
 /* CSS Document */
 
+
 		
 		/* Indent all lines of the block by 5 spaces */
     .indented {
       margin-left: 5ch; /* Adds indentation to the entire block */
     }
+
+/* Begin Note: This is for the Indexes 
+    Removed the '.' from the class name in HTML later */
+.tight-indented p {
+    margin: 0;           /* Removes the vertical space between paragraphs */
+    padding-left: 2ch;   /* Indents the block by 2 spaces */
+    display: block;      /* Ensures they stack properly */
+}
+
+.tight-indented {
+    margin-bottom: 1em;  /* Adds a little space before the next bold header */
+}
+/* End Note: This is for the Indexes 
+
+
 
 /* Right Justified Text for <p> Tag */
 	.right-justified {text-align: right;}

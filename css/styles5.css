@@ -210,19 +210,25 @@ details .navItem {
 }
 
 /* ========================= MAIN + PANELS ========================= */
-.main {
-  position: relative; /* REQUIRED: Tells the sticky header where to lock in place */
+.main{
+  position: relative;
   overflow: auto;
-  padding: 0 34px 26px 34px; 
+  padding: 0 12px 26px;                 /* was 0 34px 26px 34px */
 }
 
-.panel {
+/* PANEL: remove max width constraint */
+.panel{
   display: none;
-  max-width: 980px;
+  width: 100%;
+  max-width: none; margin: 0; width: 100%;            /* was 980px */
+  margin: 0;                  /* ensure no centering/inset */
 }
 
-.panel:target {
-  display: block;
+
+/* Replace your old .panel:target block with this updated variant */
+.panel:target,
+.panel.active-panel { 
+  display: block !important; 
 }
 
 #start {
@@ -316,6 +322,20 @@ code {
   color: #bfa13b; /* A beautiful spiritual gold tone */
   border-left: 4px solid #bfa13b; /* Distinct vertical accent line */
   padding-left: 6px; /* Prevents the text from shifting when the border appears */
+}
+
+/* Highlights the immediate folder parent (e.g., "Hearing") */
+details.active-parent > summary {
+  color: #bfa13b;          /* Matches your spiritual gold tone */
+  font-weight: 700;        /* Bolds the folder text */
+}
+
+/* Highlights the main top-level chapter heading when active */
+details.active-main-parent > summary {
+  color: #bfa13b;                         /* Turns the main heading gold */
+  font-weight: 700;                       /* Makes it extra bold */
+  border-bottom: 2px solid var(--border); /* Keeps the clean underline divider */
+  padding-bottom: 6px;
 }
 
 
